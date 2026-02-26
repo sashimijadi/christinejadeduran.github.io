@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Christine Jade Duran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0d0d12;
+      --card: #13131a;
+      --border: #1e1e2e;
+      --purple: #7c5cbf;
+      --purple-light: #a07de0;
+      --purple-glow: #7c5cbf44;
+      --text: #e8e6f0;
+      --muted: #6b6880;
+      --accent: #c084fc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* NOISE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* PIXEL ART CAT */
+    .pixel-cat {
+      image-rendering: pixelated;
+      width: 120px;
+      height: 120px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(13,13,18,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem;
+      color: var(--purple-light);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 3rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%);
+      top: 50%; right: -100px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; transform: translateY(-50%) scale(1); }
+      50% { opacity: 1; transform: translateY(-50%) scale(1.05); }
+    }
+
+    .hero-content {
+      max-width: 700px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 2px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--purple-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--purple);
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--purple-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--purple-light);
+      transform: translateY(-2px);
+    }
+
+    /* PIXEL CAT CONTAINER */
+    .hero-visual {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(-50%); }
+      50% { transform: translateY(calc(-50% - 12px)); }
+    }
+
+    /* PIXEL CAT SVG */
+    .pixel-grid {
+      display: grid;
+      grid-template-columns: repeat(16, 14px);
+      grid-template-rows: repeat(16, 14px);
+      gap: 1px;
+      filter: drop-shadow(0 0 20px var(--purple));
+    }
+
+    .px { width: 14px; height: 14px; border-radius: 1px; }
+    .p { background: var(--purple); }
+    .pp { background: var(--purple-light); }
+    .t { background: transparent; }
+    .e { background: #1a1025; }
+
+    /* SECTION COMMON */
+    section {
+      padding: 5rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 2.5rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .skill-card:hover {
+      border-color: var(--purple);
+      transform: translateY(-4px);
+    }
+
+    .skill-card h3 {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-weight: 400;
+      font-family: 'Space Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--purple-glow);
+      border: 1px solid var(--purple);
+      color: var(--purple-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-family: 'Space Mono', monospace;
+      transition: background 0.2s;
+    }
+
+    .tag:hover {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--purple), var(--accent));
+      border-radius: 3px 0 0 3px;
+    }
+
+    .project-card:hover {
+      border-color: var(--purple);
+      transform: translateX(4px);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .project-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      background: var(--purple-glow);
+      border: 1px solid var(--purple);
+      color: var(--accent);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    /* EXPERIENCE / TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--purple), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.15rem;
+      top: 0.25rem;
+      width: 24px; height: 24px;
+      background: var(--purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 0 12px var(--purple);
+    }
+
+    .timeline-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-role {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-family: 'Space Mono', monospace;
+      margin-bottom: 0.7rem;
+    }
+
+    .timeline-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 3rem;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer span { color: var(--accent); }
+
+    /* DECORATIVE STARS */
+    .star {
+      position: absolute;
+      color: var(--purple-light);
+      font-size: 1.2rem;
+      animation: twinkle 2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+      section { padding: 3rem 1.5rem; }
+      .hero-visual { display: none; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">cjd.dev</div>
+    <ul class="nav-links">
+      <li><a href="#about" class="active">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="about" style="max-width:100%;padding-top:6rem;">
+    <div class="hero-bg-glow"></div>
+
+    <!-- DECORATIVE STARS -->
+    <div class="star" style="top:15%;left:45%;animation-delay:0s;">✦</div>
+    <div class="star" style="top:70%;left:55%;animation-delay:0.7s;font-size:0.8rem;">✦</div>
+    <div class="star" style="top:30%;right:35%;animation-delay:1.2s;font-size:1.5rem;">✦</div>
+
+    <div class="hero-content">
+      <div class="hero-tag">Portfolio</div>
+      <h1>Christine Jade<br/><span>L. Duran</span></h1>
+      <p class="hero-tagline">WOWOWOWO ✦</p>
+      <p class="hero-desc">
+        A creative developer and designer who loves building things that look good
+        and work even better. From mobile apps to landing pages — I do it all.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#skills" class="btn-outline">My Skills</a>
+      </div>
+    </div>
+
+    <!-- PIXEL CAT -->
+    <div class="hero-visual">
+      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 24px #7c5cbf)">
+        <!-- Body -->
+        <rect x="60" y="90" width="80" height="70" rx="4" fill="#7c5cbf"/>
+        <!-- Head -->
+        <rect x="55" y="50" width="90" height="70" rx="8" fill="#7c5cbf"/>
+        <!-- Ears -->
+        <polygon points="60,55 50,30 75,50" fill="#a07de0"/>
+        <polygon points="140,55 150,30 125,50" fill="#a07de0"/>
+        <!-- Inner ears -->
+        <polygon points="62,52 54,34 73,50" fill="#c084fc" opacity="0.5"/>
+        <polygon points="138,52 146,34 127,50" fill="#c084fc" opacity="0.5"/>
+        <!-- Eyes -->
+        <rect x="72" y="70" width="18" height="18" rx="3" fill="#0d0d12"/>
+        <rect x="110" y="70" width="18" height="18" rx="3" fill="#0d0d12"/>
+        <!-- Eye shine -->
+        <rect x="75" y="73" width="6" height="6" rx="1" fill="#c084fc"/>
+        <rect x="113" y="73" width="6" height="6" rx="1" fill="#c084fc"/>
+        <!-- Nose -->
+        <rect x="96" y="98" width="8" height="6" rx="2" fill="#c084fc"/>
+        <!-- Mouth -->
+        <path d="M92 106 Q100 114 108 106" stroke="#c084fc" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- Whiskers -->
+        <line x1="50" y1="100" x2="85" y2="103" stroke="#a07de0" stroke-width="1.5" opacity="0.7"/>
+        <line x1="50" y1="108" x2="85" y2="108" stroke="#a07de0" stroke-width="1.5" opacity="0.7"/>
+        <line x1="115" y1="103" x2="150" y2="100" stroke="#a07de0" stroke-width="1.5" opacity="0.7"/>
+        <line x1="115" y1="108" x2="150" y2="108" stroke="#a07de0" stroke-width="1.5" opacity="0.7"/>
+        <!-- Tail -->
+        <path d="M140 140 Q180 120 170 90" stroke="#a07de0" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <!-- Paws -->
+        <rect x="65" y="150" width="28" height="18" rx="8" fill="#a07de0"/>
+        <rect x="107" y="150" width="28" height="18" rx="8" fill="#a07de0"/>
+        <!-- Belly -->
+        <ellipse cx="100" cy="130" rx="22" ry="16" fill="#a07de0" opacity="0.5"/>
+        <!-- Sparkles -->
+        <text x="22" y="60" font-size="14" fill="#c084fc" opacity="0.8">✦</text>
+        <text x="168" y="48" font-size="10" fill="#c084fc" opacity="0.6">✦</text>
+        <text x="175" y="155" font-size="16" fill="#7c5cbf" opacity="0.7">✦</text>
+        <text x="15" y="145" font-size="10" fill="#a07de0" opacity="0.5">○</text>
+        <text x="170" y="80" font-size="8" fill="#a07de0" opacity="0.5">+</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">What I Work With</div>
+    <h2>Skills & Technologies</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card" style="animation-delay:0.1s">
+        <h3>Frontend</h3>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">React Native</span>
+        </div>
+      </div>
+
+      <div class="skill-card" style="animation-delay:0.2s">
+        <h3>Backend & Data</h3>
+        <div class="tags">
+          <span class="tag">Supabase</span>
+          <span class="tag">Power BI</span>
+        </div>
+      </div>
+
+      <div class="skill-card" style="animation-delay:0.3s">
+        <h3>Design</h3>
+        <div class="tags">
+          <span class="tag">Figma</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Things I Built</div>
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-top">
+          <h3>🐔 Chickify</h3>
+          <span class="project-badge">Capstone</span>
+        </div>
+        <p class="project-desc">
+          A full-stack capstone project built as a mobile app, web platform, and landing page.
+          Designed and developed end-to-end for real-world use.
+        </p>
+        <div class="tags">
+          <span class="tag">Mobile App</span>
+          <span class="tag">Web App</span>
+          <span class="tag">Landing Page</span>
+          <span class="tag">React Native</span>
+          <span class="tag">Supabase</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <h3>🛠️ Helper App</h3>
+          <span class="project-badge">Side Project</span>
+        </div>
+        <p class="project-desc">
+          A personal side project built to solve everyday problems and sharpen development skills.
+        </p>
+        <div class="tags">
+          <span class="tag">React Native</span>
+          <span class="tag">Supabase</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">My Journey</div>
+    <h2>Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot">2025</div>
+        <div class="timeline-card">
+          <h3>Capstone Developer</h3>
+          <p class="timeline-role">Chickify — Mobile, Web & Landing Page</p>
+          <p class="timeline-desc">
+            Led the design and development of Chickify — a multi-platform project spanning a
+            React Native mobile app, a web dashboard, and a marketing landing page.
+            Managed everything from UI/UX in Figma to backend integration with Supabase.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">2025</div>
+        <div class="timeline-card">
+          <h3>Solo Developer</h3>
+          <p class="timeline-role">Helper App — Side Project</p>
+          <p class="timeline-desc">
+            Built a helper app as a personal side project to explore new ideas and
+            continue growing as a developer outside of academic requirements.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Built with <span>♥</span> by Christine Jade L. Duran &nbsp;·&nbsp; <span>christinejadeduran.github.io</span></p>
+  </footer>
+
+  <script>
+    // Smooth active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+      });
+      links.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+
+</body>
+</html>
