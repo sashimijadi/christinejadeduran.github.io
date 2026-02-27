@@ -19,7 +19,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -29,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* NOISE OVERLAY */
     body::before {
       content: '';
       position: fixed;
@@ -40,14 +38,6 @@
       opacity: 0.4;
     }
 
-    /* PIXEL ART CAT */
-    .pixel-cat {
-      image-rendering: pixelated;
-      width: 120px;
-      height: 120px;
-    }
-
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -81,11 +71,8 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--accent);
-    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -167,7 +154,41 @@
       font-size: 1rem;
       line-height: 1.8;
       max-width: 480px;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--accent);
+      border-color: var(--purple);
+      background: var(--purple-glow);
+      transform: translateY(-2px);
+    }
+
+    .social-link svg {
+      width: 15px; height: 15px;
+      fill: currentColor;
+      flex-shrink: 0;
     }
 
     .hero-btns {
@@ -185,8 +206,6 @@
       font-weight: 700;
       font-size: 0.9rem;
       transition: background 0.2s, transform 0.2s;
-      border: none;
-      cursor: pointer;
     }
 
     .btn-primary:hover {
@@ -211,7 +230,6 @@
       transform: translateY(-2px);
     }
 
-    /* PIXEL CAT CONTAINER */
     .hero-visual {
       position: absolute;
       right: 8%;
@@ -225,22 +243,6 @@
       50% { transform: translateY(calc(-50% - 12px)); }
     }
 
-    /* PIXEL CAT SVG */
-    .pixel-grid {
-      display: grid;
-      grid-template-columns: repeat(16, 14px);
-      grid-template-rows: repeat(16, 14px);
-      gap: 1px;
-      filter: drop-shadow(0 0 20px var(--purple));
-    }
-
-    .px { width: 14px; height: 14px; border-radius: 1px; }
-    .p { background: var(--purple); }
-    .pp { background: var(--purple-light); }
-    .t { background: transparent; }
-    .e { background: #1a1025; }
-
-    /* SECTION COMMON */
     section {
       padding: 5rem 3rem;
       max-width: 900px;
@@ -263,7 +265,6 @@
       margin-bottom: 2.5rem;
     }
 
-    /* SKILLS */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -276,7 +277,6 @@
       border-radius: 12px;
       padding: 1.5rem;
       transition: border-color 0.2s, transform 0.2s;
-      animation: fadeUp 0.6s ease both;
     }
 
     .skill-card:hover {
@@ -294,11 +294,7 @@
       letter-spacing: 0.1em;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .tag {
       background: var(--purple-glow);
@@ -311,16 +307,9 @@
       transition: background 0.2s;
     }
 
-    .tag:hover {
-      background: var(--purple);
-      color: #fff;
-    }
+    .tag:hover { background: var(--purple); color: #fff; }
 
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      gap: 1.2rem;
-    }
+    .projects-grid { display: grid; gap: 1.2rem; }
 
     .project-card {
       background: var(--card);
@@ -341,10 +330,7 @@
       border-radius: 3px 0 0 3px;
     }
 
-    .project-card:hover {
-      border-color: var(--purple);
-      transform: translateX(4px);
-    }
+    .project-card:hover { border-color: var(--purple); transform: translateX(4px); }
 
     .project-top {
       display: flex;
@@ -353,11 +339,7 @@
       margin-bottom: 0.6rem;
     }
 
-    .project-card h3 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
+    .project-card h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; }
 
     .project-badge {
       font-family: 'Space Mono', monospace;
@@ -369,18 +351,9 @@
       border-radius: 999px;
     }
 
-    .project-desc {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
+    .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
 
-    /* EXPERIENCE / TIMELINE */
-    .timeline {
-      position: relative;
-      padding-left: 2.5rem;
-    }
+    .timeline { position: relative; padding-left: 2.5rem; }
 
     .timeline::before {
       content: '';
@@ -390,15 +363,11 @@
       background: linear-gradient(to bottom, var(--purple), transparent);
     }
 
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2.5rem;
-    }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
 
     .timeline-dot {
       position: absolute;
-      left: -2.15rem;
-      top: 0.25rem;
+      left: -2.15rem; top: 0.25rem;
       width: 24px; height: 24px;
       background: var(--purple);
       border-radius: 50%;
@@ -419,26 +388,10 @@
       padding: 1.5rem;
     }
 
-    .timeline-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
+    .timeline-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .timeline-role { color: var(--accent); font-size: 0.85rem; font-family: 'Space Mono', monospace; margin-bottom: 0.7rem; }
+    .timeline-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
 
-    .timeline-role {
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-family: 'Space Mono', monospace;
-      margin-bottom: 0.7rem;
-    }
-
-    .timeline-desc {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 3rem;
@@ -448,9 +401,27 @@
       border-top: 1px solid var(--border);
     }
 
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-socials a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .footer-socials a svg { width: 15px; height: 15px; fill: currentColor; }
+    .footer-socials a:hover { color: var(--accent); }
     footer span { color: var(--accent); }
 
-    /* DECORATIVE STARS */
     .star {
       position: absolute;
       color: var(--purple-light);
@@ -475,7 +446,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-logo">cjd.dev</div>
     <ul class="nav-links">
@@ -486,11 +456,8 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero" id="about" style="max-width:100%;padding-top:6rem;">
     <div class="hero-bg-glow"></div>
-
-    <!-- DECORATIVE STARS -->
     <div class="star" style="top:15%;left:45%;animation-delay:0s;">✦</div>
     <div class="star" style="top:70%;left:55%;animation-delay:0.7s;font-size:0.8rem;">✦</div>
     <div class="star" style="top:30%;right:35%;animation-delay:1.2s;font-size:1.5rem;">✦</div>
@@ -498,53 +465,55 @@
     <div class="hero-content">
       <div class="hero-tag">Portfolio</div>
       <h1>Christine Jade<br/><span>L. Duran</span></h1>
-      <p class="hero-tagline">WOWOWOWO ✦</p>
+      <p class="hero-tagline">Aspiring Developer ✦</p>
       <p class="hero-desc">
         A creative developer and designer who loves building things that look good
         and work even better. From mobile apps to landing pages — I do it all.
       </p>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/christine-jade-duran-b7b073303" target="_blank" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/sashimijadi" target="_blank" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:jadeduranchristine@gmail.com" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.364l-6.545-4.636v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.273l6.545-4.636 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+          Email
+        </a>
+      </div>
+
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="#skills" class="btn-outline">My Skills</a>
       </div>
     </div>
 
-    <!-- PIXEL CAT -->
     <div class="hero-visual">
       <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 24px #7c5cbf)">
-        <!-- Body -->
         <rect x="60" y="90" width="80" height="70" rx="4" fill="#7c5cbf"/>
-        <!-- Head -->
         <rect x="55" y="50" width="90" height="70" rx="8" fill="#7c5cbf"/>
-        <!-- Ears -->
         <polygon points="60,55 50,30 75,50" fill="#a07de0"/>
         <polygon points="140,55 150,30 125,50" fill="#a07de0"/>
-        <!-- Inner ears -->
         <polygon points="62,52 54,34 73,50" fill="#c084fc" opacity="0.5"/>
         <polygon points="138,52 146,34 127,50" fill="#c084fc" opacity="0.5"/>
-        <!-- Eyes -->
         <rect x="72" y="70" width="18" height="18" rx="3" fill="#0d0d12"/>
         <rect x="110" y="70" width="18" height="18" rx="3" fill="#0d0d12"/>
-        <!-- Eye shine -->
         <rect x="75" y="73" width="6" height="6" rx="1" fill="#c084fc"/>
         <rect x="113" y="73" width="6" height="6" rx="1" fill="#c084fc"/>
-        <!-- Nose -->
         <rect x="96" y="98" width="8" height="6" rx="2" fill="#c084fc"/>
-        <!-- Mouth -->
         <path d="M92 106 Q100 114 108 106" stroke="#c084fc" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <!-- Whiskers -->
         <line x1="50" y1="100" x2="85" y2="103" stroke="#a07de0" stroke-width="1.5" opacity="0.7"/>
         <line x1="50" y1="108" x2="85" y2="108" stroke="#a07de0" stroke-width="1.5" opacity="0.7"/>
         <line x1="115" y1="103" x2="150" y2="100" stroke="#a07de0" stroke-width="1.5" opacity="0.7"/>
         <line x1="115" y1="108" x2="150" y2="108" stroke="#a07de0" stroke-width="1.5" opacity="0.7"/>
-        <!-- Tail -->
         <path d="M140 140 Q180 120 170 90" stroke="#a07de0" stroke-width="12" fill="none" stroke-linecap="round"/>
-        <!-- Paws -->
         <rect x="65" y="150" width="28" height="18" rx="8" fill="#a07de0"/>
         <rect x="107" y="150" width="28" height="18" rx="8" fill="#a07de0"/>
-        <!-- Belly -->
         <ellipse cx="100" cy="130" rx="22" ry="16" fill="#a07de0" opacity="0.5"/>
-        <!-- Sparkles -->
         <text x="22" y="60" font-size="14" fill="#c084fc" opacity="0.8">✦</text>
         <text x="168" y="48" font-size="10" fill="#c084fc" opacity="0.6">✦</text>
         <text x="175" y="155" font-size="16" fill="#7c5cbf" opacity="0.7">✦</text>
@@ -554,13 +523,11 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="section-label">What I Work With</div>
     <h2>Skills & Technologies</h2>
     <div class="skills-grid">
-
-      <div class="skill-card" style="animation-delay:0.1s">
+      <div class="skill-card">
         <h3>Frontend</h3>
         <div class="tags">
           <span class="tag">HTML</span>
@@ -568,31 +535,26 @@
           <span class="tag">React Native</span>
         </div>
       </div>
-
-      <div class="skill-card" style="animation-delay:0.2s">
+      <div class="skill-card">
         <h3>Backend & Data</h3>
         <div class="tags">
           <span class="tag">Supabase</span>
           <span class="tag">Power BI</span>
         </div>
       </div>
-
-      <div class="skill-card" style="animation-delay:0.3s">
+      <div class="skill-card">
         <h3>Design</h3>
         <div class="tags">
           <span class="tag">Figma</span>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-label">Things I Built</div>
     <h2>Projects</h2>
     <div class="projects-grid">
-
       <div class="project-card">
         <div class="project-top">
           <h3>🐔 Chickify</h3>
@@ -610,7 +572,6 @@
           <span class="tag">Supabase</span>
         </div>
       </div>
-
       <div class="project-card">
         <div class="project-top">
           <h3>🛠️ Helper App</h3>
@@ -624,16 +585,13 @@
           <span class="tag">Supabase</span>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-label">My Journey</div>
     <h2>Experience</h2>
     <div class="timeline">
-
       <div class="timeline-item">
         <div class="timeline-dot">2025</div>
         <div class="timeline-card">
@@ -646,7 +604,6 @@
           </p>
         </div>
       </div>
-
       <div class="timeline-item">
         <div class="timeline-dot">2025</div>
         <div class="timeline-card">
@@ -658,20 +615,30 @@
           </p>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/christine-jade-duran-b7b073303" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/sashimijadi" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:jadeduranchristine@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.364l-6.545-4.636v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.273l6.545-4.636 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+        Email
+      </a>
+    </div>
     <p>Built with <span>♥</span> by Christine Jade L. Duran &nbsp;·&nbsp; <span>christinejadeduran.github.io</span></p>
   </footer>
 
   <script>
-    // Smooth active nav link
     const sections = document.querySelectorAll('section[id]');
     const links = document.querySelectorAll('.nav-links a');
-
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(sec => {
