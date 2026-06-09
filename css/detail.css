@@ -462,6 +462,14 @@
   text-align: center;
   padding: 0.6rem;
   letter-spacing: 0.05em;
+  overflow: hidden;
+}
+
+.screen-web-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .screen-web-label {

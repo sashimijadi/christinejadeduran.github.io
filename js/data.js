@@ -91,10 +91,7 @@ const Projects = {
         },
       ],
       webScreenLabels: [
-        {    
-            label: 'Home',
-            image: 'assets/images/helper/hero1.png'
-        }
+        { label: 'Home', img: 'assets/images/chickify/hero1.png' }
       ],
     },
   ],
@@ -116,12 +113,12 @@ const Projects = {
       solution:
         "Developed an interactive Power BI dashboard with connected web interface for internal use. The dashboard consolidates inventory records, visualizes KPIs with charts and graphs, and allows staff to filter and drill down into specific data sets — reducing report generation time significantly.",
       screenLabels: [
-        "Login",
-        "Overview Dashboard",
-        "Inventory Table",
-        "Analytics Charts",
-        "Filter Panel",
-        "Export Report",
+        { label: 'Login', img: '' },
+        { label: 'Overview Dashboard', img: '' },
+        { label: 'Inventory Table', img: '' },
+        { label: 'Analytics Charts', img: '' },
+        { label: 'Filter Panel', img: '' },
+        { label: 'Export Report', img: '' },
       ],
       userFlows: [
         {
@@ -152,12 +149,12 @@ const Projects = {
       solution:
         "Built a centralized internal portal allowing staff to submit, track, and manage departmental documents and data entries. Includes search functionality, status tracking, and role-based access — all accessible only within the DTI internal network.",
       screenLabels: [
-        "Portal Login",
-        "Home Dashboard",
-        "Document Tracker",
-        "Submit Entry",
-        "Search & Filter",
-        "Admin View",
+        { label: 'Portal Login', img: '' },
+        { label: 'Home Dashboard', img: '' },
+        { label: 'Document Tracker', img: '' },
+        { label: 'Submit Entry', img: '' },
+        { label: 'Search & Filter', img: '' },
+        { label: 'Admin View', img: '' },
       ],
       userFlows: [
         {
@@ -201,10 +198,10 @@ const Projects = {
       solution:
         "Built Avogacha Machine — a playful browser-based gacha capsule machine where users spin to reveal randomized results, themed around avocados. Designed with satisfying animations, a clean UI, and instant accessibility via Vercel. A fun exercise in interaction design and frontend animation.",
       screenLabels: [
-        "Home / Machine",
-        "Spin Animation",
-        "Result Reveal",
-        "About Page",
+        { label: 'Home / Machine', img: '' },
+        { label: 'Spin Animation', img: '' },
+        { label: 'Result Reveal', img: '' },
+        { label: 'About Page', img: '' },
       ],
       userFlows: [
         {

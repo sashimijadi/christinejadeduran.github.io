@@ -134,8 +134,10 @@ const Components = {
           <div class="screen-web-dot" style="background:#ffbd2e"></div>
           <div class="screen-web-dot" style="background:#27c93f"></div>
         </div>
-        <div class="screen-web-placeholder"><span>${icon}</span>${s}</div>
-        <div class="screen-web-label">${s}</div>
+        <div class="screen-web-placeholder">
+          ${s.img ? `<img src="${s.img}" alt="${s.label}">` : `<span>${icon}</span>${s.label}`}
+        </div>
+        <div class="screen-web-label">${s.label}</div>
       </div>`).join('');
 
     const linkHtml = liveUrl
