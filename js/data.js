@@ -98,11 +98,12 @@ const Projects = {
 
   intern: [
     {
-      id: "dti-dashboard",
+      id: "Inventory",
       category: "Internship — DTI Region VII",
       icon: "📊",
       title: "DTI Inventory Dashboard",
       badge: "Web · Internal",
+      thumbnail: "assets/images/inventory/thumb.png",
       shortDesc:
         "An interactive internal inventory data dashboard built for DTI Region VII with visual analytics and reporting.",
       stack: ["Power BI", "HTML", "CSS", "JavaScript", "Data Analytics"],
@@ -134,20 +135,20 @@ const Projects = {
       ],
     },
     {
-      id: "dti-portal",
+      id: "Leave Management System",
       category: "Internship — DTI Region VII",
       icon: "🏛️",
-      title: "DTI Internal Portal",
+      title: "DTI Leave Management System",
       badge: "Web · Internal",
       shortDesc:
-        "An internal web portal for DTI staff operations — document tracking, data entry, and departmental information management.",
-      stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+        "A web-based leave management system for DTI Region VII staff to submit, track, and manage their leave requests.",
+      stack: ["Vue.js", "CSS", "JavaScript", "Python", "PostgreSQL"],
       type: "web-internal",
       hasVideo: false,
       problem:
-        "Internal document tracking and departmental data management at DTI Region VII was fragmented across emails and physical files, causing delays in processing and difficulty finding up-to-date information.",
+        "DTI Region VII had no centralized system for managing staff leave requests, leading to confusion, lost paperwork, and inefficient tracking of leave balances and approvals.",
       solution:
-        "Built a centralized internal portal allowing staff to submit, track, and manage departmental documents and data entries. Includes search functionality, status tracking, and role-based access — all accessible only within the DTI internal network.",
+        "Built a centralized internal portal allowing staff to track, and manage their leave requests. Includes search functionality, status tracking, and role-based access — all accessible only within the DTI internal network.",
       screenLabels: [
         { label: 'Portal Login', img: '' },
         { label: 'Home Dashboard', img: '' },
@@ -187,6 +188,7 @@ const Projects = {
       icon: "🥑",
       title: "Avogacha Machine",
       badge: "Web · Live",
+      thumbnail: "assets/images/avogacha/thumb.png",
       shortDesc:
         "A fun interactive gacha capsule machine web app themed around avocados — spin to reveal randomized surprises.",
       stack: ["React", "JavaScript", "CSS", "Vercel"],
